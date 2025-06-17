@@ -20,10 +20,7 @@
   # Optimización para el build
   NODE_OPTIONS = "--max_old_space_size=4096"
   
-  # Variables para el build (las claves reales se configuran en Netlify UI)
-  VITE_EMAILJS_USER_ID = ""
-  VITE_EMAILJS_SERVICE_ID = ""
-  VITE_EMAILJS_TEMPLATE_ID = ""
+  # Variables de EmailJS se configuran en Netlify UI, no aquí
 
 # Redirects para Single Page Application (SPA)
 [[redirects]]
@@ -134,6 +131,17 @@
     # Content Security Policy básico
     Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://api.emailjs.com;"
 
+# Configuración para formularios de Netlify (backup para EmailJS)
+[[forms]]
+  # Si quieres usar también Netlify Forms como backup
+  # Agrega: data-netlify="true" en tu formulario de contacto
+
+# Edge Functions (opcional - para funcionalidades avanzadas)
+# [[edge_functions]]
+#   function = "contact-form"
+#   path = "/api/contact"
+
+# Headers específicos para el freelance
 [[headers]]
   for = "/contacto"
   [headers.values]
@@ -151,3 +159,15 @@
   [headers.values]
     X-Robots-Tag = "index, follow"
     X-Purpose = "Web development services offered by Harold Ponce"
+
+# Prerender para mejores Core Web Vitals (opcional)
+# [build.processing]
+#   skip_processing = false
+# [build.processing.css]
+#   bundle = true
+#   minify = true
+# [build.processing.js]
+#   bundle = true
+#   minify = true
+# [build.processing.html]
+#   pretty_urls = true
