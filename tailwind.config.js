@@ -7,7 +7,6 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Paleta principal inspirada en Vampire Parrot
         'primary': {
           '50': '#fff0f0',   // Rojo muy claro para fondos
           '100': '#ffdddd',  // Rojo claro
@@ -56,7 +55,6 @@ export default {
           'red-light': '#ff5959',    // Rojo más claro para fondos
         },
         
-        // Colores semánticos con buena legibilidad
         success: {
           50: '#f0fdf4',
           500: '#22c55e',
