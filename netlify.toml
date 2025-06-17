@@ -1,0 +1,153 @@
+# Configuración de Netlify
+
+[build]
+  # Directorio donde Vite genera los archivos compilados
+  publish = "dist"
+  
+  # Comando para construir el proyecto
+  command = "npm run build"
+  
+  # Directorio base (por defecto es la raíz)
+  base = "."
+
+[build.environment]
+  # Versión de Node.js (compatibilidad con React 19)
+  NODE_VERSION = "22"
+  
+  # Versión de NPM
+  NPM_VERSION = "10"
+  
+  # Optimización para el build
+  NODE_OPTIONS = "--max_old_space_size=4096"
+  
+  # Variables para el build (las claves reales se configuran en Netlify UI)
+  VITE_EMAILJS_USER_ID = ""
+  VITE_EMAILJS_SERVICE_ID = ""
+  VITE_EMAILJS_TEMPLATE_ID = ""
+
+# Redirects para Single Page Application (SPA)
+[[redirects]]
+  # Todas las rutas no encontradas van al index.html (React Router)
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Redirects para SEO (URLs en inglés a español)
+[[redirects]]
+  from = "/services"
+  to = "/servicios"
+  status = 301
+
+[[redirects]]
+  from = "/pricing"
+  to = "/precios"
+  status = 301
+
+[[redirects]]
+  from = "/contact"
+  to = "/contacto"
+  status = 301
+
+[[redirects]]
+  from = "/about"
+  to = "/sobre-mi"
+  status = 301
+
+# Headers para Performance y Seguridad
+[[headers]]
+  # Assets estáticos (JS, CSS, imágenes) - Cache largo
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+    X-Content-Type-Options = "nosniff"
+
+[[headers]]
+  # JavaScript files
+  for = "*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+    X-Content-Type-Options = "nosniff"
+
+[[headers]]
+  # CSS files
+  for = "*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+    X-Content-Type-Options = "nosniff"
+
+[[headers]]
+  # Imágenes
+  for = "*.webp"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+    X-Content-Type-Options = "nosniff"
+
+[[headers]]
+  for = "*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+    X-Content-Type-Options = "nosniff"
+
+[[headers]]
+  for = "*.jpg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+    X-Content-Type-Options = "nosniff"
+
+[[headers]]
+  for = "*.jpeg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+    X-Content-Type-Options = "nosniff"
+
+[[headers]]
+  for = "*.svg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+    X-Content-Type-Options = "nosniff"
+
+[[headers]]
+  # JSON files (datos, manifests)
+  for = "*.json"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+    X-Content-Type-Options = "nosniff"
+
+[[headers]]
+  # HTML files - Cache corto para contenido dinámico
+  for = "*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
+  # Root y principales páginas
+  for = "/"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    # Content Security Policy básico
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://api.emailjs.com;"
+
+[[headers]]
+  for = "/contacto"
+  [headers.values]
+    X-Robots-Tag = "index, follow"
+    X-Purpose = "Lead generation for Harold Ponce freelance services"
+
+[[headers]]
+  for = "/precios"
+  [headers.values]
+    X-Robots-Tag = "index, follow"
+    X-Purpose = "Pricing information for web development services in Bolivia"
+
+[[headers]]
+  for = "/servicios"
+  [headers.values]
+    X-Robots-Tag = "index, follow"
+    X-Purpose = "Web development services offered by Harold Ponce"
