@@ -1,7 +1,3 @@
-// Exportaciones centralizadas de todos los iconos
-// Permite importar cualquier icono desde un solo lugar
-
-// Iconos de Home - Beneficios de tener una página web
 export {
   SearchIcon,
   MobileIcon,
@@ -11,7 +7,6 @@ export {
   ReachIcon
 } from './HomeIcons';
 
-// Iconos de About - Presentación personal y habilidades
 export {
   HelloIcon,
   FocusIcon,
@@ -24,7 +19,6 @@ export {
   SupportIcon
 } from './AboutIcons';
 
-// Iconos de Services - Servicios web detallados
 export {
   BusinessWebIcon,
   EcommerceIcon,
@@ -32,7 +26,6 @@ export {
   MaintenanceIcon
 } from './ServicesIcons';
 
-// Iconos de Contact - Información de contacto
 export {
   EmailIcon,
   LocationIcon,
@@ -43,7 +36,6 @@ export {
   MessageIcon
 } from './ContactIcons';
 
-// Iconos de Pricing - Información comercial
 export {
   PaymentIcon,
   GuaranteeIcon,
@@ -51,7 +43,6 @@ export {
   PaymentOptionsIcon
 } from './PricingIcons';
 
-// Iconos generales - Reutilizables
 export {
   CheckIcon,
   XIcon,
@@ -63,7 +54,6 @@ export {
   ZapIcon
 } from './GeneralIcons';
 
-// Agrupaciones por categoría para facilitar importaciones específicas
 export * as HomeIcons from './HomeIcons';
 export * as AboutIcons from './AboutIcons';
 export * as ServicesIcons from './ServicesIcons';

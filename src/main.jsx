@@ -21,7 +21,6 @@ if (metaDescription) {
 window.addEventListener('error', (event) => {
   console.error('Error global capturado:', event.error);
   
-  // Solo mostrar detalles en desarrollo
   if (import.meta.env.DEV) {
     console.error('Detalles del error:', {
       message: event.message,
@@ -47,7 +46,6 @@ window.addEventListener('unhandledrejection', (event) => {
   }
   
   if (import.meta.env.PROD) {
-    // errorService.captureException(event.reason);
   }
 });
 
@@ -60,7 +58,6 @@ const initializeApp = () => {
 
   const root = createRoot(rootElement);
   
-  // Renderizar la aplicación
   root.render(
     <StrictMode>
       <App />
@@ -73,7 +70,6 @@ try {
 } catch (error) {
   console.error('Error fatal al inicializar la aplicación:', error);
   
-  // Mostrar fallback HTML para errores críticos
   const rootElement = document.getElementById('root');
   if (rootElement) {
     rootElement.innerHTML = `
@@ -166,30 +162,13 @@ try {
     `;
   }
   
-  // En producción, reportar error crítico
   if (import.meta.env.PROD) {
-    // errorService.captureException(error, { 
-    //   tags: { errorType: 'critical-initialization' }
-    // });
+
   }
 }
 
-// ============================================================================
-// OPTIMIZACIONES OPCIONALES SIMPLES
-// ============================================================================
-
-// Precargar recursos críticos solo en producción
 if (import.meta.env.PROD) {
-  // Precargar fuentes críticas si las tienes
-  // const fontLink = document.createElement('link');
-  // fontLink.rel = 'preload';
-  // fontLink.href = '/fonts/your-font.woff2';
-  // fontLink.as = 'font';
-  // fontLink.type = 'font/woff2';
-  // fontLink.crossOrigin = 'anonymous';
-  // document.head.appendChild(fontLink);
-  
-  // Service Worker simple para cache (opcional)
+
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
       navigator.serviceWorker.register('/sw.js')

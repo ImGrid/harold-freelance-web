@@ -1,13 +1,11 @@
-// src/components/layout/animations/BackgroundEffects.jsx
 import React from 'react';
 
 const BackgroundEffects = ({ 
   showOrbs = true, 
   showParticles = true, 
   showGlow = true,
-  intensity = 'low' // 'low', 'medium', 'high'
+  intensity = 'low'
 }) => {
-  // Configuración de intensidad
   const intensityConfig = {
     low: {
       orbOpacity: 'opacity-20',
@@ -33,10 +31,8 @@ const BackgroundEffects = ({
 
   return (
     <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
-      {/* Floating Orbs - Inspirado en los gradient spheres de la investigación */}
       {showOrbs && (
         <div className="absolute inset-0">
-          {/* Orb 1 - Top Left */}
           <div 
             className={`absolute top-20 left-10 w-32 h-32 rounded-full ${config.orbOpacity} ${config.animationSpeed} animate-float-slow`}
             style={{
@@ -46,7 +42,6 @@ const BackgroundEffects = ({
             }}
           />
           
-          {/* Orb 2 - Top Right */}
           <div 
             className={`absolute top-32 right-16 w-24 h-24 rounded-full ${config.orbOpacity} ${config.animationSpeed} animate-float-slow`}
             style={{
@@ -56,7 +51,6 @@ const BackgroundEffects = ({
             }}
           />
           
-          {/* Orb 3 - Bottom Left */}
           <div 
             className={`absolute bottom-40 left-20 w-40 h-40 rounded-full ${config.orbOpacity} ${config.animationSpeed} animate-float-slow`}
             style={{
@@ -66,7 +60,6 @@ const BackgroundEffects = ({
             }}
           />
           
-          {/* Orb 4 - Bottom Right */}
           <div 
             className={`absolute bottom-20 right-8 w-28 h-28 rounded-full ${config.orbOpacity} ${config.animationSpeed} animate-float-slow`}
             style={{
@@ -78,10 +71,8 @@ const BackgroundEffects = ({
         </div>
       )}
 
-      {/* Geometric Particles - Inspirado en los particle systems encontrados */}
       {showParticles && (
         <div className="absolute inset-0">
-          {/* Particles Container */}
           {[...Array(12)].map((_, i) => (
             <div
               key={i}
@@ -93,7 +84,6 @@ const BackgroundEffects = ({
                 animationDuration: `${15 + Math.random() * 10}s`
               }}
             >
-              {/* Geometric Shape */}
               <div 
                 className={`w-full h-full rotate-45 animate-spin-slow ${Math.random() > 0.5 ? 'rounded-none' : 'rounded-full'}`}
                 style={{
@@ -108,10 +98,8 @@ const BackgroundEffects = ({
         </div>
       )}
 
-      {/* Subtle Glow Effects - Inspirado en los glow effects de la investigación */}
       {showGlow && (
         <div className="absolute inset-0">
-          {/* Corner Glows */}
           <div 
             className={`absolute top-0 left-0 w-96 h-96 ${config.glowOpacity} animate-pulse-slow`}
             style={{
@@ -133,7 +121,6 @@ const BackgroundEffects = ({
         </div>
       )}
 
-      {/* Ambient Light Lines - Efecto adicional sutil */}
       <div className="absolute inset-0 opacity-5">
         <div 
           className="absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-red-500 to-transparent animate-pulse"

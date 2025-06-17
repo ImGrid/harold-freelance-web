@@ -1,7 +1,3 @@
-// Services.jsx - VERSIÓN MODULARIZADA
-// Reducido de 300+ líneas a ~200 líneas eliminando iconos complejos inline
-
-// Importar iconos modularizados
 import { 
   BusinessWebIcon, 
   EcommerceIcon, 
@@ -9,7 +5,6 @@ import {
   MaintenanceIcon 
 } from '../components/icons';
 
-// Importar componentes de layout modularizados
 import { 
   PageLayout, 
   HeroSection 
@@ -19,7 +14,6 @@ import { services, servicesConfig, formatPrice } from '../data/services';
 import { Button, Card, Badge, Section } from '../components/ui';
 
 const Services = () => {
-  // Mapping de iconos modularizados para cada servicio
   const serviceIcons = {
     'business-web': <BusinessWebIcon />,
     'ecommerce': <EcommerceIcon />,
@@ -29,7 +23,6 @@ const Services = () => {
 
   return (
     <PageLayout>
-      {/* Hero Section Modularizado */}
       <HeroSection 
         title="Servicios de Desarrollo Web"
         description={`Desde páginas web básicas hasta sistemas completos. Desarrollo soluciones 
@@ -45,11 +38,9 @@ const Services = () => {
         }}
       />
 
-      {/* Servicios principales - Con iconos modularizados */}
       <Section background="secondary">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {services.map((service, index) => {
-            // Determinar qué icono usar basado en el contenido del servicio
             let iconKey = 'business-web'; // default
             if (service.title.toLowerCase().includes('tienda') || service.title.toLowerCase().includes('online')) {
               iconKey = 'ecommerce';
@@ -73,7 +64,6 @@ const Services = () => {
                 )}
                 
                 <div className="flex items-start space-x-6 mb-6">
-                  {/* Contenedor del icono con fondo blanco - iconos modularizados */}
                   <div className="flex-shrink-0">
                     <div className="w-20 h-20 bg-white rounded-xl flex items-center justify-center border-2 border-gray-200 shadow-sm">
                       {serviceIcons[iconKey]}
@@ -83,7 +73,6 @@ const Services = () => {
                     <h3 className="text-2xl font-semibold text-text-primary mb-2">
                       {service.title}
                     </h3>
-                    {/* Subtitle con rojo mejorado */}
                     <p 
                       className="font-medium mb-3"
                       style={{
@@ -99,7 +88,6 @@ const Services = () => {
                   </div>
                 </div>
 
-                {/* Precio con rojo mejorado */}
                 <div className="mb-6">
                   <div 
                     className="text-2xl font-bold"
@@ -118,7 +106,6 @@ const Services = () => {
                   </p>
                 </div>
 
-                {/* Características principales */}
                 <div className="mb-6">
                   <h4 className="font-semibold text-text-primary mb-3">Incluye:</h4>
                   <ul className="space-y-2">
@@ -141,7 +128,6 @@ const Services = () => {
                   </ul>
                 </div>
 
-                {/* CTA */}
                 <div className="pt-4 border-t border-dark-600">
                   <Button to="/contacto" className="w-full text-center">
                     Solicitar Cotización
@@ -153,7 +139,6 @@ const Services = () => {
         </div>
       </Section>
 
-      {/* Proceso de trabajo - Sección específica que se mantiene */}
       <Section background="secondary">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-heading font-bold text-text-primary mb-4">
@@ -168,7 +153,6 @@ const Services = () => {
           <div className="space-y-8">
             {servicesConfig.workflowSteps.map((step, index) => (
               <div key={index} className="flex items-start space-x-4">
-                {/* Círculo del número de paso con fondo mejorado */}
                 <div 
                   className="flex-shrink-0 w-10 h-10 text-white rounded-full flex items-center justify-center font-bold"
                   style={{

@@ -1,6 +1,3 @@
-// Grid reutilizable para características, beneficios o servicios
-// Patrón: icono + título + descripción repetido en múltiples páginas
-
 import { Section, Card } from '../ui';
 
 const FeatureGrid = ({
@@ -8,7 +5,7 @@ const FeatureGrid = ({
   subtitle,
   features = [],
   background = 'secondary',
-  columns = 'auto', // 'auto', 1, 2, 3, 4, 6
+  columns = 'auto',
   showIconBackground = true,
   iconBackgroundClass = 'w-20 h-20 bg-white rounded-full border-2 border-gray-200 shadow-sm',
   cardVariant = 'default',
@@ -16,10 +13,8 @@ const FeatureGrid = ({
   className = '',
   ...props
 }) => {
-  // Determinar clases de grid basado en número de columnas
   const getGridClasses = () => {
     if (columns === 'auto') {
-      // Detectar automáticamente basado en número de features
       const count = features.length;
       if (count <= 2) return 'grid-cols-1 md:grid-cols-2';
       if (count <= 3) return 'grid-cols-1 md:grid-cols-3';
@@ -28,7 +23,6 @@ const FeatureGrid = ({
       return 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4';
     }
     
-    // Clases específicas por número
     const gridMap = {
       1: 'grid-cols-1',
       2: 'grid-cols-1 md:grid-cols-2',
@@ -44,7 +38,6 @@ const FeatureGrid = ({
 
   return (
     <Section background={background} className={className} {...props}>
-      {/* Header opcional */}
       {(title || subtitle) && (
         <div className="text-center mb-12">
           {title && (
@@ -60,7 +53,6 @@ const FeatureGrid = ({
         </div>
       )}
       
-      {/* Grid de características */}
       <div className={`grid ${getGridClasses()} gap-8`}>
         {features.map((feature, index) => (
           <Card 
@@ -69,7 +61,6 @@ const FeatureGrid = ({
             hover={cardHover} 
             className="text-center h-full"
           >
-            {/* Icono */}
             {feature.icon && (
               <div className="flex justify-center mb-4">
                 {showIconBackground ? (
@@ -82,12 +73,10 @@ const FeatureGrid = ({
               </div>
             )}
             
-            {/* Título */}
             <h3 className="text-lg md:text-xl font-semibold text-text-primary mb-3">
               {feature.title}
             </h3>
             
-            {/* Subtítulo opcional */}
             {feature.subtitle && (
               <p 
                 className="font-medium mb-3"
@@ -100,19 +89,16 @@ const FeatureGrid = ({
               </p>
             )}
             
-            {/* Descripción */}
             <p className="text-text-secondary text-sm md:text-base leading-relaxed">
               {feature.description}
             </p>
             
-            {/* Contenido adicional opcional */}
             {feature.content && (
               <div className="mt-4">
                 {feature.content}
               </div>
             )}
             
-            {/* CTA opcional */}
             {feature.cta && (
               <div className="mt-4">
                 {feature.cta}

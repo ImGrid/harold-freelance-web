@@ -1,11 +1,9 @@
 import React, { useCallback, useMemo, useLayoutEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation, useNavigate } from 'react-router-dom';
 
-// Layout components (cargados inmediatamente - son pequeños)
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 
-// Pages (NO lazy loading - es una página de freelance pequeña)
 import Home from './pages/Home';
 import Services from './pages/Services';
 import Portfolio from './pages/Portfolio';
@@ -126,19 +124,15 @@ const NotFoundPage = React.memo(function NotFoundPage() {
   );
 });
 
-// Contenido principal con SEO
 const AppContent = React.memo(function AppContent() {
   const location = useLocation();
 
-  // Aplicar SEO básico
   useBasicSEO(location.pathname);
 
   return (
     <div className="min-h-screen bg-neutral-50 flex flex-col">
-      {/* Header - siempre cargado */}
       <Header />
       
-      {/* Main Content */}
       <main className="flex-grow">
         <Routes>
           <Route path="/" element={<Home />} />
@@ -175,9 +169,7 @@ class ErrorBoundary extends React.Component {
   componentDidCatch(error, errorInfo) {
     console.error('Freelance Website Error:', error, errorInfo);
     
-    // Solo en producción, enviar a servicio de monitoreo
     if (process.env.NODE_ENV === 'production') {
-      // errorTrackingService.captureException(error, { extra: errorInfo });
     }
   }
 

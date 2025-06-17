@@ -1,6 +1,3 @@
-// Componente para cards de información con iconos
-// Usado en Pricing para información importante, pero reutilizable
-
 import { Section, Card } from '../ui';
 
 const InfoCards = ({
@@ -8,7 +5,7 @@ const InfoCards = ({
   subtitle,
   cards = [],
   background = 'tertiary',
-  columns = 'auto', // 'auto', 1, 2, 3, 4
+  columns = 'auto',
   showIconBackground = true,
   iconBackgroundClass = 'w-16 h-16 bg-white rounded-xl border-2 border-gray-200 shadow-sm',
   cardVariant = 'default',
@@ -18,7 +15,6 @@ const InfoCards = ({
   className = '',
   ...props
 }) => {
-  // Determinar clases de grid
   const getGridClasses = () => {
     if (columns === 'auto') {
       const count = cards.length;
@@ -41,7 +37,6 @@ const InfoCards = ({
 
   return (
     <Section background={background} className={className} {...props}>
-      {/* Header opcional */}
       {(title || subtitle) && (
         <div className="text-center mb-12">
           {title && (
@@ -57,7 +52,6 @@ const InfoCards = ({
         </div>
       )}
       
-      {/* Grid de cards */}
       <div className={`grid ${getGridClasses()} gap-8`}>
         {cards.map((card, index) => (
           <Card 
@@ -66,7 +60,6 @@ const InfoCards = ({
             hover={cardHover} 
             className="text-center h-full"
           >
-            {/* Icono */}
             {card.icon && (
               <div className="flex justify-center mb-4">
                 {showIconBackground ? (
@@ -79,7 +72,6 @@ const InfoCards = ({
               </div>
             )}
             
-            {/* Título */}
             <h3 
               className="font-semibold mb-4"
               style={{
@@ -90,7 +82,6 @@ const InfoCards = ({
               {card.title}
             </h3>
             
-            {/* Lista de elementos */}
             {card.items && Array.isArray(card.items) && (
               <ul className="space-y-2 text-sm">
                 {card.items.map((item, itemIndex) => (
@@ -101,14 +92,12 @@ const InfoCards = ({
               </ul>
             )}
             
-            {/* Contenido personalizado */}
             {card.content && (
               <div className="text-sm text-text-secondary">
                 {card.content}
               </div>
             )}
             
-            {/* Descripción simple */}
             {card.description && !card.items && !card.content && (
               <p className="text-sm text-text-secondary leading-relaxed">
                 {card.description}

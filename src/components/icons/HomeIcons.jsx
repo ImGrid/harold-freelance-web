@@ -1,6 +1,3 @@
-// Iconos específicos para la página Home
-// Iconos relacionados con beneficios de tener una página web
-
 export const SearchIcon = () => (
   <svg className="w-12 h-12" viewBox="0 0 24 24" fill="none">
     <circle cx="11" cy="11" r="8" 

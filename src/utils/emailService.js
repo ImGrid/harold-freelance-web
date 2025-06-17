@@ -1,16 +1,11 @@
-// src/utils/emailService.js
 import emailjs from '@emailjs/browser';
 
-// Configuración de EmailJS
 const EMAILJS_CONFIG = {
   userID: import.meta.env.VITE_EMAILJS_USER_ID,
   serviceID: import.meta.env.VITE_EMAILJS_SERVICE_ID, 
   templateID: import.meta.env.VITE_EMAILJS_TEMPLATE_ID
 };
 
-/**
- * Inicializar EmailJS
- */
 export const initEmailJS = () => {
   emailjs.init(EMAILJS_CONFIG.userID);
 };
@@ -22,36 +17,28 @@ export const initEmailJS = () => {
  */
 export const sendQuoteEmail = async (formData) => {
   try {
-    // Validar datos requeridos
     if (!formData.businessType || !formData.projectType || !formData.name || !formData.email) {
       throw new Error('Faltan campos requeridos');
     }
 
-    // Preparar template params para EmailJS
     const templateParams = {
-      // Información del cliente
       client_name: formData.name,
       client_email: formData.email,
       client_phone: formData.phone || 'No proporcionado',
       
-      // Información del proyecto
       business_type: formData.businessType,
       project_type: formData.projectType,
       budget_range: formData.budget || 'No especificado',
       project_description: formData.description || 'Sin descripción adicional',
       
-      // Información adicional
       submission_date: new Date().toLocaleDateString('es-BO'),
       submission_time: new Date().toLocaleTimeString('es-BO'),
       
-      // Email de destino (tu correo)
       to_email: 'poncehar0331@gmail.com',
       
-      // Asunto del email
       subject: `Nueva Cotización: ${formData.businessType} - ${formData.projectType}`
     };
 
-    // Enviar email usando EmailJS
     const response = await emailjs.send(
       EMAILJS_CONFIG.serviceID,
       EMAILJS_CONFIG.templateID,
@@ -66,7 +53,6 @@ export const sendQuoteEmail = async (formData) => {
 
   } catch (error) {
     
-    // Manejar diferentes tipos de errores
     let errorMessage = 'Error al enviar la cotización';
     
     if (error.message.includes('Faltan campos')) {
@@ -117,7 +103,7 @@ export const sendContactEmail = async (contactData) => {
 
     const response = await emailjs.send(
       EMAILJS_CONFIG.serviceID,
-      EMAILJS_CONFIG.templateID, // Podrías usar un template diferente
+      EMAILJS_CONFIG.templateID,
       templateParams
     );
 
@@ -137,5 +123,4 @@ export const sendContactEmail = async (contactData) => {
   }
 };
 
-// Inicializar EmailJS al importar el módulo
 initEmailJS();

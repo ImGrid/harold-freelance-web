@@ -8,18 +8,15 @@ import { Button, Card, Badge, Section } from '../components/ui';
 const Portfolio = () => {
   return (
     <PageLayout>
-      {/* Hero Section Modularizado */}
       <HeroSection 
         title="Portfolio de Proyectos"
         description="Ejemplos de páginas web que he desarrollado para diferentes tipos de negocios"
       />
 
-      {/* Proyectos - PROYECTOS REALES */}
       <Section background="secondary">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
             
-            {/* Sistema SERP - EMI */}
             <Card hover={true}>
               <div className="h-64 rounded-lg mb-4 overflow-hidden border border-dark-600 shadow-lg">
                 <img 
@@ -54,7 +51,6 @@ const Portfolio = () => {
               </div>
             </Card>
 
-            {/* Calculadora Química MoleMath */}
             <Card hover={true}>
               <div className="h-64 rounded-lg mb-4 overflow-hidden border border-dark-600 shadow-lg">
                 <img 

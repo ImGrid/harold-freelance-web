@@ -1,11 +1,9 @@
-// src/data/pricing.js
-
 export const pricingPlans = [
   {
     id: 'basico',
     name: 'Básico',
     subtitle: 'Página web simple',
-    price: 1500,
+    price: 2700,
     currency: 'Bs',
     popular: false,
     deliveryTime: '1 mes',
@@ -41,7 +39,7 @@ export const pricingPlans = [
     id: 'comercial',
     name: 'Comercial',
     subtitle: 'Página web completa',
-    price: 3500,
+    price: 5000,
     currency: 'Bs',
     popular: true,
     deliveryTime: '2 meses',
@@ -78,7 +76,7 @@ export const pricingPlans = [
     id: 'tienda',
     name: 'Tienda Online',
     subtitle: 'E-commerce básico',
-    price: 8000,
+    price: 12500,
     currency: 'Bs',
     popular: false,
     deliveryTime: '3-4 meses',
@@ -116,7 +114,7 @@ export const pricingPlans = [
     id: 'sistema',
     name: 'Sistema Personalizado',
     subtitle: 'Aplicación web completa',
-    price: 15000,
+    price: 20000,
     currency: 'Bs',
     priceNote: 'Desde',
     popular: false,
@@ -159,14 +157,13 @@ export const maintenancePlans = [
   {
     id: 'basico-mant',
     name: 'Mantenimiento Básico',
-    price: 100,
+    price: 300,
     currency: 'Bs/mes',
     description: 'Mantenimiento esencial para tu página web.',
     
     includes: [
       'Actualización de textos (1 por mes)',
       'Cambio de fotos (2 por mes)',
-      'Backup semanal',
       'Soporte técnico por WhatsApp',
       'Monitoreo básico'
     ],
@@ -178,7 +175,7 @@ export const maintenancePlans = [
   {
     id: 'profesional-mant',
     name: 'Mantenimiento Profesional',
-    price: 300,
+    price: 500,
     currency: 'Bs/mes',
     popular: true,
     description: 'Mantenimiento completo con optimización.',
@@ -197,63 +194,44 @@ export const maintenancePlans = [
     idealFor: 'Negocios que actualizan contenido frecuentemente'
   },
 
-  {
-    id: 'premium-mant',
-    name: 'Mantenimiento Premium',
-    price: 1000,
-    currency: 'Bs/mes',
-    description: 'Mantenimiento completo + mejoras continuas.',
-    
-    includes: [
-      'Todo lo del plan Profesional',
-      'Nuevas funcionalidades menores',
-      'Análisis de competencia mensual',
-      'Optimización SEO continua',
-      'Reportes detallados',
-      'Consultoría digital básica'
-    ],
-    
-    responseTime: '12 horas',
-    idealFor: 'Empresas que quieren crecer online constantemente'
-  }
 ];
 
 export const additionalServices = [
   {
     name: 'Página extra',
-    price: 200,
+    price: '200 - 500',
     currency: 'Bs',
-    unit: 'por página'
+    unit: 'por página (dependiendo del modulo)'
   },
   {
     name: 'Productos extra en tienda',
-    price: 10,
+    price: 30,
     currency: 'Bs',
     unit: 'por producto (después de 50)'
   },
   {
-    name: 'Integración red social',
-    price: 60,
-    currency: 'Bs',
-    unit: 'por red social'
-  },
-  {
     name: 'Formulario personalizado',
-    price: 100,
+    price: 300,
     currency: 'Bs',
     unit: 'por formulario'
   },
   {
     name: 'Migración de sitio existente',
-    price: 1000,
+    price: '2000 - 4000',
     currency: 'Bs',
-    unit: 'servicio completo'
+    unit: 'servicio completo (depende del tipo de sitio)'
   },
   {
-    name: 'Capacitación personalizada',
+    name: 'Capacitación normal',
+    price: 150,
+    currency: 'Bs',
+    unit: 'por videos'
+  },
+  {
+    name: 'Capacitación personal',
     price: 100,
     currency: 'Bs',
-    unit: 'por sesión (2 horas)'
+    unit: 'por sesión (1 hora)'
   }
 ];
 
@@ -284,11 +262,10 @@ export const pricingInfo = {
     'Pago completo: 5% de descuento',
     'Pago en 2 cuotas: 50% inicio + 50% entrega',
     'Pago en 4 cuotas: Dendiendo del plan elegido',
-    'Pago en 5 cuotas: Solo proyectos de +8.000bs'
+    'Pago en 6 cuotas: Solo proyectos de +12.500bs'
   ]
 };
 
-// Funciones helper
 export const getPlanById = (id) => {
   return pricingPlans.find(plan => plan.id === id);
 };

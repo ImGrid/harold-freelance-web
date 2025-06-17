@@ -1,9 +1,5 @@
-// Contact.jsx - VERSIÓN FINAL CON ROJO MEJORADO Y ICONOS SVG
-// Estructura optimizada + Consistencia visual con otras páginas
-
 import { useState } from 'react';
 
-// Importar iconos modularizados actualizados
 import { 
   EmailIcon, 
   LocationIcon, 
@@ -11,10 +7,8 @@ import {
   QuoteFormIcon,
   StarIcon,
   ProcessIcon,
-  MessageIcon 
 } from '../components/icons';
 
-// Importar componentes de layout modularizados
 import { 
   PageLayout, 
   HeroSection 
@@ -22,11 +16,9 @@ import {
 
 import { Button, Card, Section } from '../components/ui';
 
-// Importar servicio de email
 import { sendQuoteEmail, validateEmailConfig } from '../utils/emailService';
 
 const Contact = () => {
-  // Estado del formulario
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -37,12 +29,10 @@ const Contact = () => {
     description: ''
   });
 
-  // Estados de UI
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState(null); // 'success', 'error', null
+  const [submitStatus, setSubmitStatus] = useState(null);
   const [errorMessage, setErrorMessage] = useState('');
 
-  // Manejar cambios en inputs
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({
@@ -50,14 +40,12 @@ const Contact = () => {
       [name]: value
     }));
     
-    // Limpiar mensaje de error al escribir
     if (submitStatus === 'error') {
       setSubmitStatus(null);
       setErrorMessage('');
     }
   };
 
-  // Validar formulario
   const validateForm = () => {
     const required = ['name', 'email', 'businessType', 'projectType'];
     const missing = required.filter(field => !formData[field].trim());
@@ -67,7 +55,6 @@ const Contact = () => {
       return false;
     }
 
-    // Validar email básico
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(formData.email)) {
       setErrorMessage('Por favor ingresa un email válido');
@@ -77,18 +64,15 @@ const Contact = () => {
     return true;
   };
 
-  // Manejar envío del formulario
   const handleSubmit = async (e) => {
     e.preventDefault();
     
-    // Validar configuración de EmailJS
     if (!validateEmailConfig()) {
       setErrorMessage('El servicio de email no está configurado. Contacta al administrador.');
       setSubmitStatus('error');
       return;
     }
 
-    // Validar formulario
     if (!validateForm()) {
       setSubmitStatus('error');
       return;
@@ -104,7 +88,6 @@ const Contact = () => {
       if (result.success) {
         setSubmitStatus('success');
         
-        // Limpiar formulario
         setFormData({
           name: '',
           email: '',
@@ -115,7 +98,6 @@ const Contact = () => {
           description: ''
         });
         
-        // Auto-limpiar mensaje de éxito después de 5 segundos
         setTimeout(() => {
           setSubmitStatus(null);
         }, 5000);
@@ -135,21 +117,17 @@ const Contact = () => {
 
   return (
     <PageLayout>
-      {/* Hero Section Modularizado */}
       <HeroSection 
         title="Contacto"
         description="¿Listo para empezar tu proyecto? Conversemos sobre tu página web"
         maxWidth="max-w-3xl"
       />
 
-      {/* ESTRUCTURA OPTIMIZADA CON ROJO MEJORADO */}
       <Section background="secondary">
         <div className="max-w-7xl mx-auto">
           
-          {/* Información de contacto arriba en cards horizontales - MÁS ROJO */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
             
-            {/* Email Card */}
             <Card hover={true} className="flex items-center space-x-4 p-6">
               <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center border-2 border-gray-200 shadow-sm flex-shrink-0">
                 <EmailIcon />
@@ -168,7 +146,6 @@ const Contact = () => {
               </div>
             </Card>
 
-            {/* Ubicación Card */}
             <Card hover={true} className="flex items-center space-x-4 p-6">
               <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center border-2 border-gray-200 shadow-sm flex-shrink-0">
                 <LocationIcon />
@@ -187,7 +164,6 @@ const Contact = () => {
               </div>
             </Card>
 
-            {/* Horarios Card */}
             <Card hover={true} className="flex items-center space-x-4 p-6">
               <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center border-2 border-gray-200 shadow-sm flex-shrink-0">
                 <ScheduleIcon />
@@ -207,13 +183,10 @@ const Contact = () => {
             </Card>
           </div>
 
-          {/* Grid optimizado 1:2 ratio */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             
-            {/* COLUMNA IZQUIERDA: Información adicional útil (1/3 del espacio) */}
             <div className="lg:col-span-1 space-y-6">
               
-              {/* ¿Por qué elegirme? - CON ROJO MEJORADO */}
               <Card>
                 <div className="text-center mb-4">
                   <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center mx-auto mb-3 border-2 border-gray-200 shadow-sm">
@@ -249,7 +222,6 @@ const Contact = () => {
                 </ul>
               </Card>
 
-              {/* Proceso rápido - CON ROJO MEJORADO */}
               <Card>
                 <div className="text-center mb-4">
                   <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center mx-auto mb-3 border-2 border-gray-200 shadow-sm">
@@ -306,7 +278,6 @@ const Contact = () => {
               </Card>
             </div>
 
-            {/* COLUMNA DERECHA: Formulario optimizado (2/3 del espacio) */}
             <div className="lg:col-span-2">
               <Card>
                 <div className="text-center mb-6">
@@ -325,7 +296,6 @@ const Contact = () => {
                   <p className="text-text-secondary">Completa el formulario y te contacto en menos de 24 horas</p>
                 </div>
                 
-                {/* Mensajes de estado */}
                 {submitStatus === 'success' && (
                   <div className="mb-6 p-4 bg-green-900 border border-green-700 rounded-lg">
                     <p className="text-green-200 text-sm">
@@ -343,9 +313,7 @@ const Contact = () => {
                 )}
                 
                 <form onSubmit={handleSubmit} className="space-y-6">
-                  {/* Grid para nombre y email */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {/* Nombre */}
                     <div>
                       <label 
                         className="block text-sm font-medium mb-2"
@@ -367,7 +335,6 @@ const Contact = () => {
                       />
                     </div>
 
-                    {/* Email */}
                     <div>
                       <label 
                         className="block text-sm font-medium mb-2"
@@ -390,7 +357,6 @@ const Contact = () => {
                     </div>
                   </div>
 
-                  {/* Teléfono */}
                   <div>
                     <label 
                       className="block text-sm font-medium mb-2"
@@ -411,9 +377,7 @@ const Contact = () => {
                     />
                   </div>
 
-                  {/* Grid para selects */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {/* Tipo de negocio */}
                     <div>
                       <label 
                         className="block text-sm font-medium mb-2"
@@ -442,7 +406,6 @@ const Contact = () => {
                       </select>
                     </div>
 
-                    {/* Tipo de proyecto */}
                     <div>
                       <label 
                         className="block text-sm font-medium mb-2"
@@ -470,7 +433,6 @@ const Contact = () => {
                     </div>
                   </div>
 
-                  {/* Presupuesto */}
                   <div>
                     <label 
                       className="block text-sm font-medium mb-2"
@@ -495,7 +457,6 @@ const Contact = () => {
                     </select>
                   </div>
 
-                  {/* Descripción */}
                   <div>
                     <label 
                       className="block text-sm font-medium mb-2"
@@ -516,7 +477,6 @@ const Contact = () => {
                     ></textarea>
                   </div>
 
-                  {/* Botón de envío */}
                   <Button 
                     type="submit" 
                     className="w-full"

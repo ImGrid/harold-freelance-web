@@ -1,6 +1,3 @@
-// Componente reutilizable para secciones de Call to Action
-// Usado para invitaciones finales a contactar o tomar acción
-
 import { Section, Button } from '../ui';
 
 const CallToAction = ({
@@ -8,14 +5,13 @@ const CallToAction = ({
   description,
   primaryCTA,
   secondaryCTA,
-  features, // Array de características/beneficios pequeños
+  features,
   background = 'transparent',
-  variant = 'gradient', // 'gradient', 'simple', 'dark'
+  variant = 'gradient',
   containerClass = '',
   className = '',
   ...props
 }) => {
-  // Variantes de estilo
   const variants = {
     gradient: {
       containerClass: 'bg-gradient-to-r from-accent-red to-primary-700 rounded-2xl p-8 md:p-12 text-center text-white shadow-lg',
@@ -45,21 +41,18 @@ const CallToAction = ({
   return (
     <Section background={background} className={className} {...props}>
       <div className={`${config.containerClass} ${containerClass}`}>
-        {/* Título */}
         {title && (
           <h2 className={config.titleClass}>
             {title}
           </h2>
         )}
         
-        {/* Descripción */}
         {description && (
           <p className={config.descriptionClass}>
             {description}
           </p>
         )}
         
-        {/* Botones de acción */}
         {(primaryCTA || secondaryCTA) && (
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
             {primaryCTA && (
@@ -86,7 +79,6 @@ const CallToAction = ({
           </div>
         )}
         
-        {/* Características/beneficios adicionales */}
         {features && features.length > 0 && (
           <div className="text-center opacity-75">
             <p className="text-sm">

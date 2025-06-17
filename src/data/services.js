@@ -1,5 +1,3 @@
-// src/data/services.js
-
 export const services = [
   {
     id: 'paginas-web',
@@ -8,8 +6,8 @@ export const services = [
     description: 'Páginas web profesionales para restaurantes, ferreterías, clínicas, gimnasios y más. Diseñadas para que tus clientes te encuentren fácilmente y confíen en tu negocio.',
     longDescription: 'Desarrollo páginas web completas y funcionales que ayudan a pequeños negocios a tener presencia online profesional. Cada página está optimizada para que aparezca en Google y se vea perfecta en todos los dispositivos.',
     price: {
-      from: 1500,
-      to: 3500,
+      from: 2700,
+      to: 5000,
       currency: 'Bs',
       note: 'Según complejidad'
     },
@@ -43,8 +41,8 @@ export const services = [
     description: 'Sistema completo de e-commerce para vender productos online. Incluye carrito de compras, gestión de productos, sistema de pagos y panel administrativo.',
     longDescription: 'Desarrollo tiendas online completas que permiten a los negocios vender sus productos por internet. Sistema fácil de usar tanto para clientes como para administradores, con todas las funcionalidades necesarias para un e-commerce exitoso.',
     price: {
-      from: 8000,
-      to: 15000,
+      from: 12500,
+      to: 20000,
       currency: 'Bs',
       note: 'Según productos y funcionalidades'
     },
@@ -80,7 +78,7 @@ export const services = [
     description: 'Desarrollo de sistemas web completos con backend, frontend y base de datos. Ideal para gestión interna, sistemas de inventario, plataformas especializadas y aplicaciones complejas.',
     longDescription: 'Creo aplicaciones web completas desde cero, con todas las funcionalidades que tu negocio necesita. Sistemas robustos que incluyen autenticación de usuarios, bases de datos, APIs y paneles administrativos avanzados.',
     price: {
-      from: 15000,
+      from: 20000,
       to: 35000,
       currency: 'Bs',
       note: 'Cotización personalizada según requerimientos'
@@ -117,8 +115,8 @@ export const services = [
     description: 'Servicio mensual de mantenimiento para tu página web. Actualizaciones de contenido, copias de seguridad, soporte técnico y optimización continua.',
     longDescription: 'Mantengo tu página web funcionando perfectamente con actualizaciones regulares, soporte técnico y mejoras continuas. Tu página siempre estará segura, rápida y actualizada.',
     price: {
-      from: 100,
-      to: 300,
+      from: 300,
+      to: 500,
       currency: 'Bs/mes',
       note: 'Según plan elegido'
     },
@@ -156,7 +154,6 @@ export const services = [
   }
 ];
 
-// Configuración general de servicios
 export const servicesConfig = {
   paymentMethods: [
     'Pago con transferencia bancaria',
@@ -236,17 +233,14 @@ export const servicesConfig = {
   ]
 };
 
-// Función helper para obtener servicio por ID
 export const getServiceById = (id) => {
   return services.find(service => service.id === id);
 };
 
-// Función helper para obtener servicios destacados
 export const getFeaturedServices = () => {
   return services.filter(service => service.featured);
 };
 
-// Función helper para obtener precios formateados
 export const formatPrice = (price) => {
   if (price.to) {
     return `${price.from.toLocaleString()} - ${price.to.toLocaleString()} ${price.currency}`;

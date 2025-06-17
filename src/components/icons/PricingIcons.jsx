@@ -1,7 +1,3 @@
-// Iconos específicos para la página Pricing
-// Iconos relacionados con información de precios y términos comerciales
-
-// Icono para Formas de Pago - Tarjeta simple
 export const PaymentIcon = () => (
   <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none">
     <rect x="3" y="6" width="18" height="12" rx="2" 
@@ -18,7 +14,6 @@ export const PaymentIcon = () => (
   </svg>
 );
 
-// Icono para Garantías - Escudo simple con check
 export const GuaranteeIcon = () => (
   <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none">
     <path d="M12 2l3 2 3-2v7c0 5.5-3 10-6 10s-6-4.5-6-10V4l3 2z" 
@@ -33,7 +28,6 @@ export const GuaranteeIcon = () => (
   </svg>
 );
 
-// Icono para Tiempos de Entrega - Reloj simple
 export const TimeIcon = () => (
   <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none">
     <circle cx="12" cy="12" r="10" 
@@ -47,7 +41,6 @@ export const TimeIcon = () => (
   </svg>
 );
 
-// Icono para Pagos por Cuotas - Billetes simples
 export const PaymentOptionsIcon = () => (
   <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none">
     <rect x="2" y="7" width="20" height="10" rx="2" 

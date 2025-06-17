@@ -81,7 +81,6 @@ export const aboutInfo = {
 
 };
 
-// Funciones helper
 export const getSkillsByCategory = (category) => {
   return aboutInfo.skills.technical.find(skill => skill.category === category);
 };

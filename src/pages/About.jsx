@@ -1,7 +1,3 @@
-// About.jsx - VERSIÓN CON ROJO MEJORADO Y CENTRADO ARREGLADO
-// Reducido de 400+ líneas a ~150 líneas manteniendo 100% funcionalidad
-
-// Importar iconos modularizados
 import { 
   HelloIcon,
   TechnicalSkillsIcon, 
@@ -13,7 +9,6 @@ import {
   SupportIcon 
 } from '../components/icons';
 
-// Importar componentes de layout modularizados
 import { 
   PageLayout, 
   HeroSection, 
@@ -24,9 +19,7 @@ import { Button, Card, Badge, Section } from '../components/ui';
 import { aboutInfo } from '../data/about';
 
 const About = () => {
-  // Datos de "¿Por qué elegirme?" - usando datos reales de aboutInfo.whyChooseMe
   const whyChooseMeWithIcons = aboutInfo.whyChooseMe.map((reason, index) => {
-    // Lógica original de asignación de iconos basada en palabras clave
     let IconComponent = ExperienceIcon; // default
     
     if (reason.title.toLowerCase().includes('comunicación') || reason.title.toLowerCase().includes('español')) {
@@ -49,17 +42,14 @@ const About = () => {
 
   return (
     <PageLayout>
-      {/* Hero Section Modularizado */}
       <HeroSection 
         title="Sobre Mí"
         description={aboutInfo.personal.mission}
       />
 
-      {/* Información personal - Sección específica que se mantiene CON ROJO MEJORADO */}
       <Section background="secondary">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-            {/* Foto y info básica */}
             <div className="lg:col-span-1">
               <div className="sticky top-8">
                 <Card className="text-center">
@@ -70,7 +60,6 @@ const About = () => {
                       className="w-full h-full object-cover"
                       loading="lazy"
                       onError={(e) => {
-                        // Fallback si la imagen no carga
                         e.target.style.display = 'none';
                         e.target.parentElement.innerHTML = '<div class="w-full h-full bg-background-tertiary flex items-center justify-center"><span class="text-text-muted text-lg">Harold Ponce</span></div>';
                       }}
@@ -108,9 +97,7 @@ const About = () => {
               </div>
             </div>
 
-            {/* Contenido principal */}
             <div className="lg:col-span-2 space-y-8">
-              {/* Introducción con icono modularizado CON ROJO MEJORADO */}
               <Card>
                 <div className="flex items-start space-x-4 mb-4">
                   <div className="w-16 h-16 bg-white rounded-xl flex items-center justify-center border-2 border-gray-200 shadow-sm flex-shrink-0">
@@ -137,7 +124,6 @@ const About = () => {
                 </div>
               </Card>
 
-              {/* Habilidades técnicas con icono modularizado CON ROJO MEJORADO */}
               <Card>
                 <div className="flex items-start space-x-4 mb-6">
                   <div className="w-16 h-16 bg-white rounded-xl flex items-center justify-center border-2 border-gray-200 shadow-sm flex-shrink-0">
@@ -180,7 +166,6 @@ const About = () => {
                 </div>
               </Card>
 
-              {/* Habilidades blandas con icono modularizado CON ROJO MEJORADO */}
               <Card>
                 <div className="flex items-start space-x-4 mb-4">
                   <div className="w-16 h-16 bg-white rounded-xl flex items-center justify-center border-2 border-gray-200 shadow-sm flex-shrink-0">
@@ -212,7 +197,6 @@ const About = () => {
         </div>
       </Section>
 
-      {/* ¿Por qué elegirme? - CENTRADO ARREGLADO y CON ROJO MEJORADO */}
       <Section background="tertiary">
         <div className="text-center mb-12">
           <h2 
@@ -229,9 +213,7 @@ const About = () => {
           </p>
         </div>
 
-        {/* GRID MEJORADO PARA CENTRADO AUTOMÁTICO */}
         <div className="max-w-7xl mx-auto">
-          {/* Primera fila: 4 cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
             {whyChooseMeWithIcons.slice(0, 4).map((feature, index) => (
               <Card 
@@ -239,14 +221,12 @@ const About = () => {
                 hover={true} 
                 className="text-center h-full"
               >
-                {/* Icono */}
                 <div className="flex justify-center mb-4">
                   <div className="w-20 h-20 bg-white rounded-full border-2 border-gray-200 shadow-sm flex items-center justify-center">
                     {feature.icon}
                   </div>
                 </div>
                 
-                {/* Título CON ROJO MEJORADO */}
                 <h3 
                   className="text-lg md:text-xl font-semibold mb-3"
                   style={{
@@ -257,7 +237,6 @@ const About = () => {
                   {feature.title}
                 </h3>
                 
-                {/* Descripción */}
                 <p className="text-text-secondary text-sm md:text-base leading-relaxed">
                   {feature.description}
                 </p>
@@ -265,7 +244,6 @@ const About = () => {
             ))}
           </div>
 
-          {/* Segunda fila: CENTRADA AUTOMÁTICAMENTE */}
           {whyChooseMeWithIcons.length > 4 && (
             <div className="flex justify-center">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-4xl">
@@ -275,14 +253,12 @@ const About = () => {
                     hover={true} 
                     className="text-center h-full"
                   >
-                    {/* Icono */}
                     <div className="flex justify-center mb-4">
                       <div className="w-20 h-20 bg-white rounded-full border-2 border-gray-200 shadow-sm flex items-center justify-center">
                         {feature.icon}
                       </div>
                     </div>
                     
-                    {/* Título CON ROJO MEJORADO */}
                     <h3 
                       className="text-lg md:text-xl font-semibold mb-3"
                       style={{
@@ -293,7 +269,6 @@ const About = () => {
                       {feature.title}
                     </h3>
                     
-                    {/* Descripción */}
                     <p className="text-text-secondary text-sm md:text-base leading-relaxed">
                       {feature.description}
                     </p>

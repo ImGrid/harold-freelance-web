@@ -1,6 +1,3 @@
-// Componente reutilizable para secciones Hero
-// Estructura consistente para todas las páginas principales
-
 import { Section, Button } from '../ui';
 
 const HeroSection = ({ 
@@ -11,25 +8,22 @@ const HeroSection = ({
   secondaryCTA,
   background = 'hero',
   maxWidth = 'max-w-4xl',
-  titleHighlight, // Para palabras destacadas en rojo
-  titleSize = 'default', // 'default', 'large', 'extra-large'
+  titleHighlight,
+  titleSize = 'default',
   className = '',
   ...props 
 }) => {
-  // Tamaños de título configurables
   const titleSizes = {
     default: 'text-4xl md:text-5xl',
-    large: 'text-4xl md:text-6xl',     // Para Home - tamaño original
+    large: 'text-4xl md:text-6xl',
     'extra-large': 'text-5xl md:text-7xl'
   };
 
-  // Procesar título con highlight si se proporciona
   const renderTitle = () => {
     if (!titleHighlight) {
       return <span>{title}</span>;
     }
 
-    // Dividir el título y aplicar highlight a la parte especificada
     const parts = title.split(titleHighlight.text);
     
     return (

@@ -18,7 +18,6 @@ const Header = () => {
     <header className="bg-background-primary shadow-strong border-b border-dark-700 sticky top-0 z-50">
       <nav className="container-custom">
         <div className="flex justify-between items-center py-4">
-          {/* Logo con imagen */}
           <Link to="/" className="flex items-center space-x-2 group">
             <div className="w-8 h-8 rounded-lg overflow-hidden">
               <img 
@@ -26,7 +25,6 @@ const Header = () => {
                 alt="Harold Ponce Logo" 
                 className="w-full h-full object-cover transition-all duration-300 group-hover:shadow-red-glow"
                 onError={(e) => {
-                  // Fallback si la imagen no carga
                   e.target.style.display = 'none';
                   e.target.parentElement.innerHTML = '<div class="w-8 h-8 bg-accent-red rounded-lg flex items-center justify-center transition-all duration-300 group-hover:shadow-red-glow"><span class="text-white font-bold text-lg">H</span></div>';
                 }}
@@ -37,7 +35,6 @@ const Header = () => {
             </span>
           </Link>
 
-          {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navigation.map((item) => (
               <Link
@@ -60,7 +57,6 @@ const Header = () => {
             </Link>
           </div>
 
-          {/* Mobile menu button */}
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -91,7 +87,6 @@ const Header = () => {
           </div>
         </div>
 
-        {/* Mobile Navigation */}
         {isOpen && (
           <div className="md:hidden border-t border-dark-700 bg-background-secondary">
             <div className="px-2 pt-2 pb-3 space-y-1">

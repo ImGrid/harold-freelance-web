@@ -13,14 +13,12 @@ const Button = ({
   rel,
   ...props 
 }) => {
-  // Variantes de estilo
   const variants = {
     primary: 'btn-primary',
     secondary: 'btn-secondary', 
     outline: 'btn-outline'
   };
 
-  // Tamaños
   const sizes = {
     small: 'px-4 py-2 text-sm',
     default: 'px-6 py-3 text-base',
@@ -29,7 +27,6 @@ const Button = ({
 
   const baseClasses = `${variants[variant]} ${sizes[size]} ${className}`;
 
-  // Si es link interno (react-router)
   if (to) {
     return (
       <Link 
@@ -42,7 +39,6 @@ const Button = ({
     );
   }
 
-  // Si es link externo
   if (href) {
     return (
       <a 
@@ -57,7 +53,6 @@ const Button = ({
     );
   }
 
-  // Si es botón normal
   return (
     <button 
       onClick={onClick}

@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
-  // Iconos SVG directos para contacto
   const EmailIcon = () => (
     <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none">
       <rect x="3" y="5" width="18" height="14" rx="2" 
@@ -50,11 +49,18 @@ const Footer = () => {
     <footer className="bg-dark-950 text-text-secondary border-t border-dark-800">
       <div className="container-custom py-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-          {/* Logo y descripción */}
           <div className="md:col-span-1">
             <div className="flex items-center space-x-2 mb-3 group">
-              <div className="w-8 h-8 bg-accent-red rounded-lg flex items-center justify-center group-hover:shadow-red-glow transition-all">
-                <span className="text-white font-bold text-lg">H</span>
+              <div className="w-8 h-8 rounded-lg overflow-hidden">
+                <img 
+                  src="/favicon.webp" 
+                  alt="Harold Ponce Logo" 
+                  className="w-full h-full object-cover transition-all duration-300 group-hover:shadow-red-glow"
+                  onError={(e) => {
+                    e.target.style.display = 'none';
+                    e.target.parentElement.innerHTML = '<div class="w-8 h-8 bg-accent-red rounded-lg flex items-center justify-center transition-all duration-300 group-hover:shadow-red-glow"><span class="text-white font-bold text-lg">H</span></div>';
+                  }}
+                />
               </div>
               <span className="text-xl font-heading font-semibold text-text-primary">
                 Harold Ponce
@@ -65,7 +71,6 @@ const Footer = () => {
             </p>
           </div>
 
-          {/* Servicios */}
           <div>
             <h3 className="text-text-primary font-semibold mb-3">Servicios</h3>
             <ul className="space-y-1.5 text-sm">
@@ -92,7 +97,6 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Links útiles */}
           <div>
             <h3 className="text-text-primary font-semibold mb-3">Enlaces</h3>
             <ul className="space-y-1.5 text-sm">
@@ -119,11 +123,9 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Contacto */}
           <div>
             <h3 className="text-text-primary font-semibold mb-3">Contacto</h3>
             <div className="space-y-2.5 text-sm">
-              {/* Email */}
               <div className="flex items-center space-x-3">
                 <EmailIcon />
                 <a href="mailto:poncehar0331@gmail.com" 
@@ -132,7 +134,6 @@ const Footer = () => {
                 </a>
               </div>
               
-              {/* LinkedIn */}
               <div className="flex items-center space-x-3">
                 <LinkedInIcon />
                 <a href="https://www.linkedin.com/in/harold-ponce-234897285/" 
@@ -143,7 +144,6 @@ const Footer = () => {
                 </a>
               </div>
               
-              {/* Ubicación */}
               <div className="flex items-center space-x-3">
                 <LocationIcon />
                 <span>Bolivia</span>
@@ -152,7 +152,6 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Copyright - Más compacto */}
         <div className="border-t border-dark-800 mt-6 pt-6 text-center">
           <p className="text-sm text-text-muted">
             © {currentYear} Harold Ponce. Todos los derechos reservados.

@@ -5,14 +5,12 @@ const Badge = ({
   className = '',
   ...props 
 }) => {
-  // Variantes de estilo
   const variants = {
     primary: 'tag-primary',
     secondary: 'tag-secondary',
     technology: 'tag-technology'
   };
 
-  // Tamaños
   const sizes = {
     small: 'text-xs px-2 py-1',
     default: 'text-sm px-3 py-1', 

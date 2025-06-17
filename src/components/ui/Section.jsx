@@ -6,7 +6,6 @@ const Section = ({
   container = true,
   ...props 
 }) => {
-  // Variantes de fondo
   const backgrounds = {
     primary: 'bg-background-primary',
     secondary: 'bg-background-secondary',
@@ -15,10 +14,8 @@ const Section = ({
     transparent: ''
   };
 
-  // Padding de sección
   const sectionPadding = 'section-padding';
   
-  // Container
   const containerClass = container ? 'container-custom' : '';
 
   const sectionClasses = `${sectionPadding} ${backgrounds[background]} ${className}`;

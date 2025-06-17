@@ -1,7 +1,3 @@
-// Home.jsx - VERSIÓN MODULARIZADA
-// Reducido de 600+ líneas a ~80 líneas manteniendo 100% funcionalidad
-
-// Importar iconos modularizados
 import { 
   SearchIcon, 
   MobileIcon, 
@@ -11,7 +7,6 @@ import {
   ReachIcon 
 } from '../components/icons';
 
-// Importar componentes de layout modularizados
 import { 
   PageLayout, 
   HeroSection, 
@@ -20,7 +15,6 @@ import {
 } from '../components/sections';
 
 const Home = () => {
-  // Datos de beneficios - extraídos para claridad
   const webBenefits = [
     {
       id: 'google-search',
@@ -66,7 +60,6 @@ const Home = () => {
     }
   ];
 
-  // Características del CTA final
   const ctaFeatures = [
     { icon: "⚡", text: "Respuesta rápida garantizada" },
     { icon: "💰", text: "Precios adaptados a Bolivia" },
@@ -75,10 +68,9 @@ const Home = () => {
 
   return (
     <PageLayout>
-      {/* Hero Section limpio sin animaciones */}
       <HeroSection 
         title="Páginas Web y Sistemas Completos para tu Negocio"
-        titleSize="large" // Tamaño original de Home (md:text-6xl)
+        titleSize="large"
         titleHighlight={{
           text: "Sistemas Completos",
           color: '#dc2626',
@@ -101,7 +93,6 @@ const Home = () => {
         className="bg-gradient-to-br from-background-primary via-background-secondary to-background-primary"
       />
 
-      {/* Sección de Beneficios - FeatureGrid limpio */}
       <FeatureGrid 
         title="¿Por qué tu negocio necesita una página web?"
         subtitle={`En Bolivia, cada vez más clientes buscan negocios en internet antes de visitarlos. 
@@ -115,7 +106,6 @@ const Home = () => {
         cardHover={true}
       />
 
-      {/* Call to Action Final limpio */}
       <CallToAction 
         title="¿Tu negocio necesita una página web?"
         description={`Te ayudo a tener presencia online profesional. Conversemos sobre tu proyecto 

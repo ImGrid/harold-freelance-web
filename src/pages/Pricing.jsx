@@ -119,9 +119,7 @@ const Pricing = () => {
                       </p>
                     </div>
 
-                    {/* Contenido flexible */}
                     <div className="flex-grow px-2">
-                      {/* Incluye */}
                       <div className="mb-4">
                         <h4 className="font-semibold text-text-primary mb-2 text-sm">Incluye:</h4>
                         <ul className="space-y-1">
@@ -139,7 +137,6 @@ const Pricing = () => {
                         </ul>
                       </div>
 
-                      {/* No incluye */}
                       {plan.notIncludes && (
                         <div className="mb-4">
                           <h4 className="font-semibold text-text-primary mb-2 text-sm">No incluye:</h4>
@@ -154,7 +151,6 @@ const Pricing = () => {
                         </div>
                       )}
 
-                      {/* Ideal para */}
                       <div className="mb-4">
                         <h4 className="font-semibold text-text-primary mb-2 text-sm">Ideal para:</h4>
                         <div className="flex flex-wrap gap-1">
@@ -166,7 +162,6 @@ const Pricing = () => {
                         </div>
                       </div>
 
-                      {/* Nota adicional */}
                       {plan.note && (
                         <div className="mb-4 p-2 bg-background-tertiary rounded-lg border border-dark-600">
                           <p className="text-xs text-text-secondary italic">
@@ -176,7 +171,6 @@ const Pricing = () => {
                       )}
                     </div>
 
-                    {/* CTA */}
                     <div className="pt-3 border-t border-dark-600 mt-auto px-2">
                       <Button 
                         to="/contacto"
@@ -193,7 +187,6 @@ const Pricing = () => {
             </div>
           </div>
 
-          {/* DESKTOP: Grid normal mejorado */}
           <div className="hidden lg:grid lg:grid-cols-4 gap-6">
             {pricingPlans.map((plan) => (
               <Card 
@@ -242,9 +235,7 @@ const Pricing = () => {
                   </p>
                 </div>
 
-                {/* Contenido flexible */}
                 <div className="flex-grow">
-                  {/* Incluye */}
                   <div className="mb-6">
                     <h4 className="font-semibold text-text-primary mb-3 text-sm">Incluye:</h4>
                     <ul className="space-y-2">
@@ -262,7 +253,6 @@ const Pricing = () => {
                     </ul>
                   </div>
 
-                  {/* No incluye */}
                   {plan.notIncludes && (
                     <div className="mb-6">
                       <h4 className="font-semibold text-text-primary mb-3 text-sm">No incluye:</h4>
@@ -277,7 +267,6 @@ const Pricing = () => {
                     </div>
                   )}
 
-                  {/* Ideal para */}
                   <div className="mb-6">
                     <h4 className="font-semibold text-text-primary mb-3 text-sm">Ideal para:</h4>
                     <div className="flex flex-wrap gap-1">
@@ -289,7 +278,6 @@ const Pricing = () => {
                     </div>
                   </div>
 
-                  {/* Nota adicional */}
                   {plan.note && (
                     <div className="mb-6 p-3 bg-background-tertiary rounded-lg border border-dark-600">
                       <p className="text-xs text-text-secondary italic">
@@ -299,7 +287,6 @@ const Pricing = () => {
                   )}
                 </div>
 
-                {/* CTA */}
                 <div className="pt-4 border-t border-dark-600 mt-auto">
                   <Button 
                     to="/contacto"
@@ -315,7 +302,6 @@ const Pricing = () => {
         </div>
       </Section>
 
-      {/* Planes de mantenimiento - RESPONSIVE MEJORADO */}
       <Section background="tertiary">
         <div className="text-center mb-8 md:mb-12">
           <h2 
@@ -332,7 +318,6 @@ const Pricing = () => {
           </p>
         </div>
         
-        {/* RESPONSIVE: Stack en móvil, grid en desktop */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-4xl mx-auto">
           {maintenancePlans.filter(plan => plan.id !== 'premium-mant').map((plan) => (
             <Card 
@@ -368,7 +353,6 @@ const Pricing = () => {
                 </p>
               </div>
 
-              {/* Contenido flexible */}
               <div className="flex-grow">
                 <div className="mb-6">
                   <h4 
@@ -414,7 +398,6 @@ const Pricing = () => {
                 </div>
               </div>
 
-              {/* CTA al final */}
               <div className="mt-auto">
                 <Button 
                   to="/contacto"
@@ -429,7 +412,6 @@ const Pricing = () => {
         </div>
       </Section>
 
-      {/* Servicios adicionales - RESPONSIVE MEJORADO */}
       <Section background="secondary">
         <div className="text-center mb-8 md:mb-12">
           <h2 
@@ -469,7 +451,6 @@ const Pricing = () => {
         </div>
       </Section>
 
-      {/* Información importante - Responsive mejorado */}
       <InfoCards 
         cards={importantInfo}
         columns={4}
