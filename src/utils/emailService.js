@@ -6,8 +6,33 @@ const EMAILJS_CONFIG = {
   templateID: import.meta.env.VITE_EMAILJS_TEMPLATE_ID
 };
 
+// 🧪 DEBUG TEMPORAL - Agregar estas líneas para debugging
+console.log('🔍 DEBUG EmailJS Config:', {
+  userID: EMAILJS_CONFIG.userID,
+  serviceID: EMAILJS_CONFIG.serviceID,
+  templateID: EMAILJS_CONFIG.templateID,
+  userID_defined: !!EMAILJS_CONFIG.userID,
+  serviceID_defined: !!EMAILJS_CONFIG.serviceID,
+  templateID_defined: !!EMAILJS_CONFIG.templateID
+});
+
 export const initEmailJS = () => {
   emailjs.init(EMAILJS_CONFIG.userID);
+};
+
+/**
+ * Validar configuración de EmailJS
+ * @returns {boolean} - Si la configuración es válida
+ */
+export const validateEmailConfig = () => {
+  const isValid = !!(EMAILJS_CONFIG.userID && 
+                    EMAILJS_CONFIG.serviceID && 
+                    EMAILJS_CONFIG.templateID);
+  
+  // 🧪 DEBUG TEMPORAL - Agregar esta línea
+  console.log('🔍 DEBUG validateEmailConfig:', { isValid, config: EMAILJS_CONFIG });
+  
+  return isValid;
 };
 
 /**
@@ -17,6 +42,9 @@ export const initEmailJS = () => {
  */
 export const sendQuoteEmail = async (formData) => {
   try {
+    // 🧪 DEBUG TEMPORAL - Agregar esta línea al inicio
+    console.log('🔍 DEBUG sendQuoteEmail iniciado:', { formData, config: EMAILJS_CONFIG });
+
     if (!formData.businessType || !formData.projectType || !formData.name || !formData.email) {
       throw new Error('Faltan campos requeridos');
     }
@@ -39,11 +67,21 @@ export const sendQuoteEmail = async (formData) => {
       subject: `Nueva Cotización: ${formData.businessType} - ${formData.projectType}`
     };
 
+    // 🧪 DEBUG TEMPORAL - Agregar esta línea antes del envío
+    console.log('🔍 DEBUG enviando email con:', { 
+      serviceID: EMAILJS_CONFIG.serviceID,
+      templateID: EMAILJS_CONFIG.templateID,
+      templateParams 
+    });
+
     const response = await emailjs.send(
       EMAILJS_CONFIG.serviceID,
       EMAILJS_CONFIG.templateID,
       templateParams
     );
+
+    // 🧪 DEBUG TEMPORAL - Agregar esta línea para respuesta exitosa
+    console.log('✅ DEBUG email enviado exitosamente:', response);
 
     return {
       success: true,
@@ -53,6 +91,9 @@ export const sendQuoteEmail = async (formData) => {
 
   } catch (error) {
     
+    // 🧪 DEBUG TEMPORAL - Agregar esta línea para errores
+    console.error('❌ DEBUG error al enviar email:', error);
+
     let errorMessage = 'Error al enviar la cotización';
     
     if (error.message.includes('Faltan campos')) {
@@ -73,17 +114,6 @@ export const sendQuoteEmail = async (formData) => {
       error: error
     };
   }
-};
-
-/**
- * Validar configuración de EmailJS
- * @returns {boolean} - Si la configuración es válida
- */
-export const validateEmailConfig = () => {
-  const isValid = !!(EMAILJS_CONFIG.userID && 
-                    EMAILJS_CONFIG.serviceID && 
-                    EMAILJS_CONFIG.templateID);
-  return isValid;
 };
 
 /**
