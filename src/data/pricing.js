@@ -266,13 +266,6 @@ export const pricingInfo = {
   ]
 };
 
-export const getPlanById = (id) => {
-  return pricingPlans.find(plan => plan.id === id);
-};
-
-export const getPopularPlan = () => {
-  return pricingPlans.find(plan => plan.popular);
-};
 
 export const formatPrice = (price, currency, note = '') => {
   const formattedPrice = price.toLocaleString();

@@ -56,7 +56,7 @@ const About = () => {
                   <div className="w-48 h-48 rounded-xl mx-auto mb-6 overflow-hidden border border-dark-600 shadow-lg">
                     <img 
                       src="/profile.webp" 
-                      alt="Harold Ponce - Desarrollador Web Freelancer" 
+                      alt="Harold Ponce - Desarrollador Web Freelancer -" 
                       className="w-full h-full object-cover"
                       loading="lazy"
                       onError={(e) => {
@@ -68,6 +68,9 @@ const About = () => {
                   <h2 className="text-2xl font-heading font-bold text-text-primary mb-2">
                     {aboutInfo.personal.name}
                   </h2>
+                  <p className="font-medium text-white mb-2">
+                    {aboutInfo.personal.profession}
+                  </p>
                   <p 
                     className="font-medium mb-4"
                     style={{

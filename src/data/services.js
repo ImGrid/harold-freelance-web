@@ -232,15 +232,6 @@ export const servicesConfig = {
     }
   ]
 };
-
-export const getServiceById = (id) => {
-  return services.find(service => service.id === id);
-};
-
-export const getFeaturedServices = () => {
-  return services.filter(service => service.featured);
-};
-
 export const formatPrice = (price) => {
   if (price.to) {
     return `${price.from.toLocaleString()} - ${price.to.toLocaleString()} ${price.currency}`;

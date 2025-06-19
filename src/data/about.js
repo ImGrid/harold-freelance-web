@@ -1,12 +1,13 @@
 export const aboutInfo = {
   personal: {
     name: 'Harold Ponce',
+    profession: 'Ingeniero de Sistemas',
     title: 'Desarrollador Web Freelancer',
     location: 'Bolivia',
     email: 'poncehar0331@gmail.com',
     
     introduction: `
-      Hola, soy Harold Ponce, desarrollador web especializado en crear páginas web para pequeños negocios en Bolivia.
+      Hola, soy Harold Ponce, ingeniero de sistemasy desarrollador web especializado en crear páginas web para pequeños negocios en Bolivia.
       
       Mi enfoque es simple: ayudar a emprendedores y dueños de negocios a tener presencia online profesional sin complicaciones técnicas. Trabajo con tecnologías modernas como React y JavaScript para crear sitios web rápidos, seguros y fáciles de mantener.
       
@@ -79,18 +80,4 @@ export const aboutInfo = {
     }
   ],
 
-};
-
-export const getSkillsByCategory = (category) => {
-  return aboutInfo.skills.technical.find(skill => skill.category === category);
-};
-
-export const getRandomTestimonial = () => {
-  const testimonials = aboutInfo.testimonials.list;
-  return testimonials[Math.floor(Math.random() * testimonials.length)];
-};
-
-export const formatAvailability = () => {
-  const { availability } = aboutInfo.contact;
-  return `${availability.weekdays} | ${availability.saturday}`;
 };

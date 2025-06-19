@@ -17,7 +17,7 @@ const Portfolio = () => {
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
             
-            <Card hover={true}>
+            <Card hover={true} className="flex flex-col h-full">
               <div className="h-64 rounded-lg mb-4 overflow-hidden border border-dark-600 shadow-lg">
                 <img 
                   src="/Serp_system.webp" 
@@ -39,11 +39,12 @@ const Portfolio = () => {
               >
                 Sistema SERP - EMI
               </h3>
-              <p className="text-text-secondary mb-4">
+              <p className="text-text-secondary mb-4 flex-grow">
                 Sistema de Evaluación por Rúbricas para Proyectos Finales desarrollado para la Escuela Militar de Ingeniería. 
-                Actualmente en uso por múltiples carreras para evaluar trabajos de grado.
+                Actualmente en uso por múltiples carreras para evaluar proyectos de examenes finales.
+                (por tema de confidencialidad no puedo mostrar la pagina)
               </p>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-2 mt-auto">
                 <Badge variant="primary">React</Badge>
                 <Badge variant="primary">Node.js</Badge>
                 <Badge variant="primary">PostgreSQL</Badge>
@@ -51,7 +52,11 @@ const Portfolio = () => {
               </div>
             </Card>
 
-            <Card hover={true}>
+            <Card 
+              hover={true} 
+              className="flex flex-col h-full cursor-pointer transition-transform hover:scale-[1.02]"
+              onClick={() => window.open('https://molemath.netlify.app/', '_blank')}
+            >
               <div className="h-64 rounded-lg mb-4 overflow-hidden border border-dark-600 shadow-lg">
                 <img 
                   src="/Molemath.webp" 
@@ -73,11 +78,11 @@ const Portfolio = () => {
               >
                 MoleMath - Calculadora Química
               </h3>
-              <p className="text-text-secondary mb-4">
+              <p className="text-text-secondary mb-4 flex-grow">
                 Sistema desarrollado por encargo para estudiante de colegio. 
                 Automatiza cálculos complejos de masa molar, concentraciones y balance de ecuaciones con explicaciones detalladas.
               </p>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-2 mt-auto">
                 <Badge variant="primary">React</Badge>
                 <Badge variant="primary">TypeScript</Badge>
                 <Badge variant="primary">Vite</Badge>

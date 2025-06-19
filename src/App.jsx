@@ -13,7 +13,7 @@ import Contact from './pages/Contact';
 
 const PAGE_CONFIGS = {
   '/': {
-    title: 'Harold Ponce - Desarrollador Web Freelance en Bolivia',
+    title: 'Ing. Harold Ponce - Desarrollador Web Freelance en Bolivia',
     description: 'Páginas web profesionales para pequeños negocios en Bolivia.'
   },
   '/servicios': {
