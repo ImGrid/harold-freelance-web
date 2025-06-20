@@ -90,6 +90,47 @@ const Portfolio = () => {
               </div>
             </Card>
           </div>
+          <div className="flex justify-center mb-12">
+            <div className="w-full md:w-1/2">
+              <Card 
+                hover={true} 
+                className="flex flex-col h-full cursor-pointer transition-transform hover:scale-[1.02]"
+                onClick={() => window.open('https://deliverylapaz.netlify.app/', '_blank')}
+              >
+                <div className="h-64 rounded-lg mb-4 overflow-hidden border border-dark-600 shadow-lg">
+                  <img 
+                    src="/deliverylanding.webp" 
+                    alt="Delivery La Paz - Landing Page Demo" 
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                      e.target.parentElement.innerHTML = '<div class="w-full h-full bg-background-tertiary flex items-center justify-center border border-dark-600"><span class="text-text-muted">🍕 Delivery La Paz</span></div>';
+                    }}
+                  />
+                </div>
+                <h3 
+                  className="text-xl font-semibold mb-2"
+                  style={{
+                    color: '#f43c3c',
+                    textShadow: '1px 1px 2px rgba(0, 0, 0, 0.7)'
+                  }}
+                >
+                  Delivery La Paz - Demo
+                </h3>
+                <p className="text-text-secondary mb-4 flex-grow">
+                  Landing page moderna para plataforma de delivery de comida. Demo completa, 
+                  animaciones suaves, diseño responsive y formulario de contacto funcional. 
+                </p>
+                <div className="flex flex-wrap gap-2 mt-auto">
+                  <Badge variant="primary">React</Badge>
+                  <Badge variant="primary">Vite</Badge>
+                  <Badge variant="primary">Tailwind CSS</Badge>
+                  <Badge variant="primary">Landing Page</Badge>
+                </div>
+              </Card>
+            </div>
+          </div>
 
           <div className="text-center">
             <p className="text-text-primary mb-6">
