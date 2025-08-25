@@ -10,6 +10,7 @@ import {
 
 import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
+import ScrollToTop from "./components/ScrollToTop"; // NUEVO: Importar el componente
 
 import Home from "./pages/Home";
 import Services from "./pages/Services";
@@ -138,6 +139,9 @@ const AppContent = React.memo(function AppContent() {
 
   return (
     <>
+      {/* NUEVO: Componente para scroll al top en cambio de página */}
+      <ScrollToTop />
+
       {/* Header ahora fuera del contenedor flex principal */}
       <Header />
 
