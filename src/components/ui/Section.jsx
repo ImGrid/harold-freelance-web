@@ -1,31 +1,29 @@
-const Section = ({ 
-  children, 
-  background = 'primary',
+const Section = ({
+  children,
+  background = "primary",
   hero = false,
-  className = '',
+  className = "",
   container = true,
-  ...props 
+  ...props
 }) => {
   const backgrounds = {
-    primary: 'bg-background-primary',
-    secondary: 'bg-background-secondary',
-    tertiary: 'bg-background-tertiary',
-    hero: 'hero-simple',
-    transparent: ''
+    primary: "bg-background-primary",
+    secondary: "bg-background-secondary",
+    tertiary: "bg-background-tertiary",
+    hero: "hero-simple",
+    transparent: "",
   };
 
-  const sectionPadding = 'section-padding';
-  
-  const containerClass = container ? 'container-custom' : '';
+  const sectionPadding = "section-padding";
+
+  const containerClass = container ? "container-custom" : "";
 
   const sectionClasses = `${sectionPadding} ${backgrounds[background]} ${className}`;
 
   if (container) {
     return (
       <section className={sectionClasses} {...props}>
-        <div className={containerClass}>
-          {children}
-        </div>
+        <div className={containerClass}>{children}</div>
       </section>
     );
   }

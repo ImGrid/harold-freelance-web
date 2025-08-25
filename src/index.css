@@ -1,5 +1,5 @@
 /* Fuentes de Google Fonts - DEBE IR PRIMERO */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap");
 
 /* Importación de Tailwind CSS */
 @tailwind base;
@@ -11,38 +11,43 @@
   html {
     scroll-behavior: smooth;
   }
-  
+
   body {
-    @apply font-sans text-text-primary antialiased;
+    @apply font-sans antialiased text-text-primary;
     @apply bg-background-primary;
     line-height: 1.6;
     color: #f6f6f6;
     background-color: #000000;
   }
-  
+
   /* Headings con fuente personalizada */
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-heading font-semibold text-text-primary;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-semibold font-heading text-text-primary;
   }
-  
+
   /* Links por defecto */
   a {
     @apply transition-colors duration-200;
   }
-  
+
   /* Scrollbar personalizado - tema oscuro */
   ::-webkit-scrollbar {
     width: 8px;
   }
-  
+
   ::-webkit-scrollbar-track {
     @apply bg-dark-900;
   }
-  
+
   ::-webkit-scrollbar-thumb {
-    @apply bg-dark-600 rounded-full;
+    @apply rounded-full bg-dark-600;
   }
-  
+
   ::-webkit-scrollbar-thumb:hover {
     @apply bg-accent-red;
   }
@@ -52,113 +57,136 @@
 @layer components {
   /* Botón principal - Rojo vampire parrot */
   .btn-primary {
-    @apply inline-flex items-center justify-center px-6 py-3 text-base font-medium text-white bg-accent-red border border-transparent rounded-lg shadow-medium;
+    @apply inline-flex items-center justify-center px-6 py-3 text-base font-medium text-white border border-transparent rounded-lg bg-accent-red shadow-medium;
     @apply hover:bg-accent-red-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent-red;
     @apply transition-all duration-200 ease-in-out;
     @apply disabled:opacity-50 disabled:cursor-not-allowed;
   }
-  
+
   /* Botón secundario - Contorno rojo */
   .btn-secondary {
-    @apply inline-flex items-center justify-center px-6 py-3 text-base font-medium text-accent-red bg-transparent border border-accent-red rounded-lg;
+    @apply inline-flex items-center justify-center px-6 py-3 text-base font-medium bg-transparent border rounded-lg text-accent-red border-accent-red;
     @apply hover:bg-accent-red hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent-red;
     @apply transition-all duration-200 ease-in-out;
     background-color: transparent;
     border-color: #ff2626;
     color: #ff2626;
   }
-  
+
   /* Botón outline - Gris oscuro */
   .btn-outline {
-    @apply inline-flex items-center justify-center px-6 py-3 text-base font-medium text-text-secondary bg-transparent border border-dark-600 rounded-lg;
+    @apply inline-flex items-center justify-center px-6 py-3 text-base font-medium bg-transparent border rounded-lg text-text-secondary border-dark-600;
     @apply hover:bg-dark-800 hover:border-dark-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-dark-500;
     @apply transition-all duration-200 ease-in-out;
   }
-  
+
   /* Card base - Fondo gris oscuro SIN efectos LED */
   .card {
-    @apply bg-background-secondary rounded-xl shadow-medium border border-dark-600;
+    @apply border bg-background-secondary rounded-xl shadow-medium border-dark-600;
     @apply p-6;
     background-color: #3d3d3d;
     border-color: #5d5d5d;
   }
-  
+
   /* Card con hover - SIN efectos LED molestos */
   .card-hover {
-    @apply card transition-all duration-300 ease-in-out;
+    @apply transition-all duration-300 ease-in-out card;
     @apply hover:shadow-strong hover:-translate-y-1 hover:border-dark-500;
     @apply hover:bg-background-tertiary;
   }
-  
+
   /* Card destacado - Para servicios principales */
   .card-featured {
-    @apply bg-background-tertiary rounded-xl shadow-strong border-2 border-accent-red;
+    @apply border-2 bg-background-tertiary rounded-xl shadow-strong border-accent-red;
     @apply p-6;
     background-color: #454545;
     border-color: #ff2626;
   }
-  
+
   /* Card secundario - Para servicios regulares */
   .card-secondary {
-    @apply bg-background-secondary rounded-xl shadow-medium border border-dark-500;
+    @apply border bg-background-secondary rounded-xl shadow-medium border-dark-500;
     @apply p-6;
     background-color: #3d3d3d;
     border-color: #6d6d6d;
   }
-  
+
   /* Input de formulario - Tema oscuro */
   .form-input {
-    @apply block w-full px-4 py-3 text-base text-text-primary placeholder-text-muted bg-background-secondary border border-dark-600 rounded-lg;
+    @apply block w-full px-4 py-3 text-base border rounded-lg text-text-primary placeholder-text-muted bg-background-secondary border-dark-600;
     @apply focus:outline-none focus:ring-2 focus:ring-accent-red focus:border-transparent;
     @apply transition-all duration-200;
     background-color: #3d3d3d;
     border-color: #5d5d5d;
     color: #f6f6f6;
   }
-  
+
   .form-input::placeholder {
     color: #b0b0b0;
   }
-  
+
   /* Container principal */
   .container-custom {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    @apply px-4 mx-auto max-w-7xl sm:px-6 lg:px-8;
   }
-  
+
   /* Sección con padding */
   .section-padding {
-    @apply py-16 lg:py-28;
+    @apply pt-32 pb-16 lg:pt-32 lg:pb-28;
   }
-  
+
   /* Gradiente de texto rojo vampire parrot */
   .text-gradient {
-    @apply bg-gradient-to-r from-accent-red to-accent-red-dark bg-clip-text text-transparent;
+    @apply text-transparent bg-gradient-to-r from-accent-red to-accent-red-dark bg-clip-text;
     background: linear-gradient(135deg, #ff2626 0%, #db0000 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-  
+
   /* Tags mejorados - Mayor contraste y legibilidad */
   .tag-primary {
-    @apply px-3 py-1 bg-accent-red bg-opacity-90 text-white rounded-full text-sm font-medium border border-accent-red;
+    @apply px-3 py-1 text-sm font-medium text-white border rounded-full bg-accent-red bg-opacity-90 border-accent-red;
     background-color: rgba(255, 38, 38, 0.9);
     color: #ffffff;
     border-color: #ff2626;
   }
-  
+
   .tag-secondary {
-    @apply px-3 py-1 bg-dark-700 text-text-primary rounded-full text-sm border border-dark-500;
+    @apply px-3 py-1 text-sm border rounded-full bg-dark-700 text-text-primary border-dark-500;
     background-color: #4f4f4f;
     color: #f6f6f6;
     border-color: #6d6d6d;
   }
-  
+
   .tag-technology {
-    @apply px-2 py-1 bg-dark-600 text-text-secondary rounded text-xs border border-dark-500;
+    @apply px-2 py-1 text-xs border rounded bg-dark-600 text-text-secondary border-dark-500;
     background-color: #5d5d5d;
     color: #e7e7e7;
     border-color: #6d6d6d;
+  }
+  /* NUEVO: Espaciado automático para header fixed */
+  main {
+    padding-top: 80px; /* Altura del header + margen */
+  }
+
+  /* En móvil, ajustar el padding */
+  @media (max-width: 768px) {
+    main {
+      padding-top: 2px;
+    }
+  }
+
+  /* Solo si usas la solución con fixed */
+  .main-content-with-fixed-header {
+    padding-top: 80px; /* Altura aproximada del header + margen */
+  }
+
+  /* Para móvil, ajustar el padding */
+  @screen md {
+    .main-content-with-fixed-header {
+      padding-top: 85px;
+    }
   }
 }
 
@@ -168,7 +196,7 @@
   .animate-fade-in-up {
     animation: fadeInUp 0.6s ease-out forwards;
   }
-  
+
   /* Keyframes para animaciones personalizadas */
   @keyframes fadeInUp {
     from {
@@ -180,52 +208,84 @@
       transform: translateY(0);
     }
   }
-  
+
   /* Backdrop blur para modales */
   .backdrop-blur-custom {
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
   }
-  
+
   /* Gradiente vampire parrot para fondos */
   .bg-vampire-gradient {
     background: linear-gradient(135deg, #000000 0%, #3d3d3d 50%, #000000 100%);
   }
-  
+
   /* Efectos de glow SOLO para elementos específicos de Home */
   .glow-red-home {
     box-shadow: 0 0 20px rgba(255, 38, 38, 0.3);
   }
-  
+
   .glow-red-strong-home {
     box-shadow: 0 0 30px rgba(255, 38, 38, 0.5);
   }
-  
+
   /* Bordes mejorados sin efectos LED */
   .border-vampire {
     border: 1px solid #5d5d5d;
     background-color: #3d3d3d;
   }
-  
+
   .border-vampire-featured {
     border: 2px solid #ff2626;
     background-color: #454545;
   }
-  
+
   /* Texto con mejor contraste para legibilidad */
   .text-high-contrast {
     color: #f6f6f6;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
   }
-  
+
   /* Sección hero SIMPLE sin efectos LED */
   .hero-vampire {
-    background: linear-gradient(135deg, #000000 0%, #3d3d3d 30%, #454545 70%, #000000 100%);
+    background: linear-gradient(
+      135deg,
+      #000000 0%,
+      #3d3d3d 30%,
+      #454545 70%,
+      #000000 100%
+    );
     position: relative;
   }
-  
+
   /* Eliminar el overlay con efecto LED del hero */
   .hero-simple {
     background: linear-gradient(135deg, #000000 0%, #2d2d2d 50%, #000000 100%);
+  }
+  /* NUEVAS: Utilidades para espaciado del header */
+  .pt-header {
+    padding-top: 80px;
+  }
+
+  @screen md {
+    .pt-header {
+      padding-top: 85px;
+    }
+  }
+
+  /* Clase auxiliar para casos especiales */
+  .header-spacing {
+    padding-top: 80px;
+  }
+
+  @media (max-width: 768px) {
+    .header-spacing {
+      padding-top: 75px;
+    }
+  }
+
+  /* Para elementos que no necesiten el espaciado */
+  .no-header-spacing {
+    padding-top: 0 !important;
   }
 }
