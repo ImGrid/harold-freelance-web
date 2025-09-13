@@ -8,8 +8,8 @@ export const services = [
     longDescription:
       "Desarrollo páginas web completas y funcionales que ayudan a pequeños negocios a tener presencia online profesional. Cada página está optimizada para que aparezca en Google y se vea perfecta en todos los dispositivos.",
     price: {
-      from: 1200,
-      to: 2700,
+      from: 1000,
+      to: 2400,
       currency: "Bs",
       note: "Según complejidad",
     },
@@ -24,7 +24,7 @@ export const services = [
       "Dominio .com incluido",
       "Hasta 3 revisiones incluidas",
     ],
-    deliveryTime: "1 - 2 meses",
+    deliveryTime: "1 mes",
     idealFor: [
       "Restaurantes y heladerías",
       "Ferreterías y talleres",

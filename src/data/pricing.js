@@ -3,7 +3,7 @@ export const pricingPlans = [
     id: "basico",
     name: "Básico",
     subtitle: "Página web simple",
-    price: 1200,
+    price: 1000,
     currency: "Bs",
     popular: false,
     deliveryTime: "1 mes",
@@ -39,10 +39,10 @@ export const pricingPlans = [
     id: "comercial",
     name: "Comercial",
     subtitle: "Página web completa",
-    price: 2700,
+    price: 2400,
     currency: "Bs",
     popular: true,
-    deliveryTime: "2 meses",
+    deliveryTime: "1 mes",
     description:
       "Página web profesional con todas las funcionalidades para tu negocio.",
 
