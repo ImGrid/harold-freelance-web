@@ -39,7 +39,7 @@ export const pricingPlans = [
     id: "comercial",
     name: "Comercial",
     subtitle: "Página web completa",
-    price: 2400,
+    price: 2000,
     currency: "Bs",
     popular: true,
     deliveryTime: "1 mes",

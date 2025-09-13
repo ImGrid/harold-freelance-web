@@ -9,7 +9,7 @@ export const services = [
       "Desarrollo páginas web completas y funcionales que ayudan a pequeños negocios a tener presencia online profesional. Cada página está optimizada para que aparezca en Google y se vea perfecta en todos los dispositivos.",
     price: {
       from: 1000,
-      to: 2400,
+      to: 2000,
       currency: "Bs",
       note: "Según complejidad",
     },
